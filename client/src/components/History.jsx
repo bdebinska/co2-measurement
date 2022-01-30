@@ -3,22 +3,19 @@ import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tool
 
 function History(props) {
 
-  const historicalData = [{name: "a", value: 2000}, {name: "b", value:3000}, {name: "c", value: 400}, {name: "d", value: 600}];
-
-  function addData() {
-
-  }
-
   return (
     <div className="history">
-      <ResponsiveContainer width="80%" height="80%">
-        <LineChart data={historicalData}>
+      <h1 className="heading">CO2 Level</h1>
+      <h2>Past 20 measurements over time.</h2>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={props.historicalData} margin={{top: 30, right: 0, bottom: 10, left: 20}}>
           <CartesianGrid stroke="#ccc" />
-          <YAxis />
+        <XAxis dy={10} reversed="true" unit="s ago" />
+          <YAxis type="number" domain={[0, 3500]} unit="ppm" />
           <Tooltip />
           <Line type="monotone"
             strokeDashrarray="3 3"
-            dataKey="value"
+            dataKey={(v) => v}
             stroke="#423F3E"
           />
         </LineChart>

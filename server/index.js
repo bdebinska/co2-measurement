@@ -23,6 +23,9 @@ let prevCo2Level = null;
 let [message, color] = setProperties(currentCo2Level);
 let co2Levels = [currentCo2Level];
 let averageCo2Level = getAverage(co2Levels);
+// set message and color for co2 levels
+[averageMessage, averageColor] = setProperties(averageCo2Level);
+[currentMessage, currentColor] = setProperties(currentCo2Level);
 
 // print a new co2 level with the timing every 10 seconds
 setInterval(() => {
@@ -37,7 +40,10 @@ setInterval(() => {
   averageCo2Level = getAverage(co2Levels)
   console.log(averageCo2Level);
 
-  [message, color] = setProperties(averageCo2Level);
+  // set message and color for co2 levels
+  [averageMessage, averageColor] = setProperties(averageCo2Level);
+  [currentMessage, currentColor] = setProperties(currentCo2Level);
+
   console.log(currentCo2Level + " " + 10 * i + ' seconds');
 }, 10000);
 
@@ -56,9 +62,12 @@ function setProperties(averageCo2Level) {
 app.get("/api", (req, res) => {
   res.json({
     averageCo2Level: averageCo2Level,
-    co2Level: currentCo2Level,
-    message: message,
-    color: color
+    currentCo2Level: currentCo2Level,
+    averageMessage: averageMessage,
+    averageColor: averageColor,
+    currentMessage: currentMessage,
+    currentColor: currentColor,
+    co2Levels: co2Levels
   });
 })
 

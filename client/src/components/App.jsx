@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from "react";
-import Heading from "./Heading";
 import History from "./History";
 import CO2Level from "./CO2Level";
 
 function App() {
-  const [[averageCo2Level, currentCo2Level, message, color], setData] = useState(["", "", ""]);
+  const [[averageCo2Level, currentCo2Level, averageMessage, averageColor,
+     currentMessage, currentColor, co2Levels], setData] = useState(["", "", "", "", "", "", []]);
 
   useEffect(() => {
     function getData() {
       fetch("/api")
         .then((res) => res.json())
-        .then((data) => setData([data.averageCo2Level, data.co2Level, data.message, data.color]));
+        .then((data) => setData([data.averageCo2Level, data.currentCo2Level, data.averageMessage, data.averageColor, data.currentMessage, data.currentColor, data.co2Levels]));
     }
     getData();
     setInterval(() => {
@@ -20,13 +20,13 @@ function App() {
 
   return (
     <div className="App">
-      <Heading />
       <div className="container">
-        <History />
+        <History historicalData={co2Levels}/>
         <div className="co2LevelDisplays">
-          <CO2Level heading="Current Co2 Level" co2Level={currentCo2Level} color={color} message={message} />
-          <CO2Level heading="Average Co2 Level" co2Level={averageCo2Level} color={color} message={message} />
-        </div>
+          <CO2Level heading="Current Co2 Level" co2Level={currentCo2Level} color={currentColor} message={currentMessage} />
+          <CO2Level heading="Average Co2 Level*" co2Level={averageCo2Level} color={averageColor} message={averageMessage} />
+        <p className="annotations">*Average CO2 level is based on the average from last 20 measurements.</p>
+      </div>
       </div>
     </div>
   );
