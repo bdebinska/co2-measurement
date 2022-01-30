@@ -1,12 +1,56 @@
-.App {
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FEFBF3;
+  color: #423F3E;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.heading {
+  font-size: 4rem;
+  margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+.container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+}
+
+.history {
+  align-self: flex-end;
+  flex-grow: 4;
+  height: 23rem;
+  margin-top: 10rem;
+  width: 60rem;
 }
 
 .co2LevelDisplay {
+  align-self: flex-start;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-right: 10rem;
   text-align: center;
-  width: 60%;
-  height: 60%;
-  border-radius: 100%;
+  width: 15rem;
+}
+
+.buttonHeading {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.co2Heading {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.co2Value {
+  font-size: 1rem;
 }
