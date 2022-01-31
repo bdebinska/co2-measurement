@@ -11,3 +11,7 @@ Simple CO2 level visualization.
 * Made with React.js and Recharts.
 * Feches data from the server every 10 seconds and updates current CO2 level and average CO2.
 * Generates a graph every 10 seconds with the past 20 CO2 levels.
+
+
+## Live preview
+[Click for live preview](https://co2-measurement.herokuapp.com/)
