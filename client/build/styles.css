@@ -1,0 +1,87 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FEFBF3;
+  color: #423F3E;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* History */
+
+.history {
+  align-self: center;
+  width: 80%;
+  height: 25rem;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.historyHeading {
+  font-size: 4rem;
+  margin: 10px auto 0 auto;
+  text-align: center;
+}
+
+/*CO2 Level display */
+
+.co2LevelDisplay {
+  align-self: flex-start;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 13.5rem;
+  justify-content: center;
+  margin: 30px 5rem 0 2rem;
+  text-align: center;
+  width: 13.5rem;
+}
+
+.displayHeading {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+
+.co2Heading {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.co2Value {
+  font-size: 1rem;
+}
+
+.annotations {
+  width: 13rem
+}
+
+@media (max-width: 1300px) {
+
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .history {
+    align-self: center;
+    flex-grow: 0;
+    width: 100%
+  }
+
+  .co2LevelDisplay {
+    align-self: center;
+    margin: auto auto 2rem auto;
+  }
+
+  .annotations {
+    text-align: center;
+    width: auto;
+  }
+}
